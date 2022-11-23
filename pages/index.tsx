@@ -76,7 +76,6 @@ export default function Home() {
           />
           <NumberButtons selected={selected} updateSelected={updateSelected} />
         </VerticalColumn>
-
         <FuncButtons
           selected={selected}
           updateSelected={updateSelected}
