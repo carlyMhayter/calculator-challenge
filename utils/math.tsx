@@ -23,4 +23,34 @@ export const mathFunctions: ObjectFunction = {
 
     return string;
   },
+  sub: ({ x, y }: Props) => {
+    if (x === "") {
+      return y;
+    }
+    const floatSub = parseFloat(x) - parseFloat(y === "" ? "0" : y);
+    console.log("floatSub", floatSub);
+    const string = floatSub.toString();
+    return string;
+  },
+
+  mult: ({ x, y }: Props) => {
+    if (x === "") {
+      return y;
+    }
+    const floatMult =
+      parseFloat(x === "" ? "0" : x) * parseFloat(y === "" ? "0" : y);
+    const string = floatMult.toString();
+
+    return string;
+  },
+  div: ({ x, y }: Props) => {
+    if (x === "") {
+      return y;
+    }
+    const floatDiv =
+      parseFloat(x === "" ? "0" : x) / parseFloat(y === "" ? "0" : y);
+    const string = floatDiv.toString();
+
+    return string;
+  },
 };

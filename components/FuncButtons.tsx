@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mathFunctions, add } from "../utils/math";
+import { mathFunctions } from "../utils/math";
 import { BasicButton } from "../pages";
 
 const ButtonContainer = styled.div`
@@ -21,6 +21,12 @@ interface FuncProps {
   action: string;
   children?: string;
 }
+interface ExecuteProps {
+  selected: string;
+  runningTotal: string;
+  previousAction: string;
+  nextAction: string;
+}
 
 export function FuncButtons({
   selected,
@@ -30,22 +36,76 @@ export function FuncButtons({
   updateAction,
   action,
 }: FuncProps) {
+  const execute = ({
+    selected,
+    runningTotal,
+    previousAction,
+    nextAction,
+  }: ExecuteProps) => {
+    if (action === "") {
+      updateRunningTotal(selected);
+      updateSelected("");
+      updateAction(nextAction);
+      return;
+    }
+    const func = mathFunctions[previousAction];
+    const calc = func({ x: runningTotal, y: selected });
+    updateRunningTotal(calc);
+    updateSelected("");
+    updateAction(nextAction);
+  };
+
   return (
     <>
       <ButtonContainer>
         <BasicButton
           onClick={() => {
-            const calc = add({ x: runningTotal, y: selected });
-            updateAction("add");
-            updateRunningTotal(calc);
-            updateSelected("");
+            execute({
+              selected,
+              runningTotal,
+              previousAction: action,
+              nextAction: "add",
+            });
           }}
         >
           +
         </BasicButton>
-        <BasicButton>-</BasicButton>
-        <BasicButton>/</BasicButton>
-        <BasicButton>x</BasicButton>
+        <BasicButton
+          onClick={() => {
+            execute({
+              selected,
+              runningTotal,
+              previousAction: action,
+              nextAction: "sub",
+            });
+          }}
+        >
+          -
+        </BasicButton>
+        <BasicButton
+          onClick={() => {
+            execute({
+              selected,
+              runningTotal,
+              previousAction: action,
+              nextAction: "div",
+            });
+          }}
+        >
+          /
+        </BasicButton>
+        <BasicButton
+          onClick={() => {
+            execute({
+              selected,
+              runningTotal,
+              previousAction: action,
+              nextAction: "mult",
+            });
+          }}
+        >
+          x
+        </BasicButton>
         <BasicButton
           type="button"
           onClick={() => {

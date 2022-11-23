@@ -74,6 +74,7 @@ export default function Home() {
             selected={selected}
             updateSelected={updateSelected}
             updateRunningTotal={updateRunningTotal}
+            updateAction={updateAction}
           />
           <NumberButtons selected={selected} updateSelected={updateSelected} />
         </VerticalColumn>

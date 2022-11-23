@@ -19,6 +19,7 @@ const ButtonsContainer = styled.div`
 interface ButtonProps {
   updateSelected: Function;
   updateRunningTotal: Function;
+  updateAction: Function;
   runningTotal: string;
   selected: string;
   action: string;
@@ -30,6 +31,7 @@ export function UtilButtons({
   action,
   runningTotal,
   selected,
+  updateAction,
 }: ButtonProps) {
   return (
     <ButtonsContainer>
@@ -37,6 +39,7 @@ export function UtilButtons({
         onClick={() => {
           updateSelected("");
           updateRunningTotal("");
+          updateAction("");
         }}
       >
         AC
