@@ -55,9 +55,7 @@ export default function Home() {
   const [action, updateAction] = useState<string>("");
 
   const displayedNum = selected === "" ? runningTotal : selected;
-  console.log("selected", selected);
-  console.log("runningTotal", runningTotal);
-  console.log("action", action);
+
   return (
     <div>
       <Head>

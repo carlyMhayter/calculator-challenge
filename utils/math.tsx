@@ -28,7 +28,6 @@ export const mathFunctions: ObjectFunction = {
       return y;
     }
     const floatSub = parseFloat(x) - parseFloat(y === "" ? "0" : y);
-    console.log("floatSub", floatSub);
     const string = floatSub.toString();
     return string;
   },
