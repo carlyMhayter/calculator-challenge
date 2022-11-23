@@ -39,6 +39,9 @@ export const BasicButton = styled.button`
   border: 1px #edecec solid;
   border-radius: 0.25em;
   transition: 0.25s;
+  color: black;
+  margin-right: 0.25em;
+  margin-bottom: 0.25em;
   &:hover {
     background-color: #edecec;
   }
@@ -48,7 +51,11 @@ export const BasicButton = styled.button`
   }
 `;
 
-const VerticalColumn = styled.div``;
+const VerticalColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`;
 export default function Home() {
   const [selected, updateSelected] = useState<string>("");
   const [runningTotal, updateRunningTotal] = useState<string>("");

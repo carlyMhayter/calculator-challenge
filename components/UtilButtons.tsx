@@ -3,17 +3,17 @@ import { BasicButton } from "../pages";
 
 const ButtonsContainer = styled.div`
   width: 100%;
+  display: grid;
+  grid-template-columns: 6em 6em 6em;
   /* border: 1px solid green; */
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 0.25em;
-  button {
+
+  /*  button {
     width: 98%;
     margin-right: 0.25em;
     :last-of-type {
       margin-right: 0em;
-    }
-  }
+    } 
+  }*/
 `;
 
 interface ButtonProps {

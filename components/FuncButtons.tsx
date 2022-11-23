@@ -3,13 +3,9 @@ import { mathFunctions } from "../utils/math";
 import { BasicButton } from "../pages";
 
 const ButtonContainer = styled.div`
-  padding: 0em 0.25em;
   height: 100%;
   display: flex;
   flex-direction: column;
-  button {
-    margin-bottom: 0.17em;
-  }
 `;
 
 interface FuncProps {

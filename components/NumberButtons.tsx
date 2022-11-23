@@ -4,7 +4,6 @@ import { BasicButton } from "../pages/index";
 const ButtonsContainer = styled.div`
   display: grid;
   grid-template-columns: 6em 6em 6em;
-  grid-gap: 0.25em;
 
   button:nth-of-type(10) {
     grid-column: span 2;
