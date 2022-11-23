@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { BasicButton } from "../pages/index";
-import { UtilButtons } from "./UtilButtons";
 
 const ButtonsContainer = styled.div`
   display: grid;
@@ -15,17 +14,11 @@ const ButtonsContainer = styled.div`
 interface NumberProps {
   selected: string;
   updateSelected: Function;
-  runningTotal: string;
-  updateRunningTotal: Function;
+
   children?: string;
 }
 
-export function NumberButtons({
-  selected,
-  updateSelected,
-  updateRunningTotal,
-  runningTotal,
-}: NumberProps) {
+export function NumberButtons({ selected, updateSelected }: NumberProps) {
   const numbers: number[] = Array.from(Array(10).keys()).reverse();
 
   return (
@@ -36,13 +29,21 @@ export function NumberButtons({
           key={number}
           onClick={() => {
             updateSelected(selected + number);
-            console.log("runningTotal", runningTotal);
           }}
         >
           {number}
         </BasicButton>
       ))}
-      <BasicButton>.</BasicButton>
+      <BasicButton
+        onClick={() => {
+          if (selected.includes(".") || selected.includes("NaN")) {
+          } else {
+            updateSelected(selected + ".");
+          }
+        }}
+      >
+        .
+      </BasicButton>
     </ButtonsContainer>
   );
 }

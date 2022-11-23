@@ -16,12 +16,55 @@ const ButtonsContainer = styled.div`
   }
 `;
 
-export function UtilButtons() {
+interface ButtonProps {
+  updateSelected: Function;
+  updateRunningTotal: Function;
+  runningTotal: string;
+  selected: string;
+  action: string;
+}
+
+export function UtilButtons({
+  updateSelected,
+  updateRunningTotal,
+  action,
+  runningTotal,
+  selected,
+}: ButtonProps) {
   return (
     <ButtonsContainer>
-      <BasicButton>AC</BasicButton>
-      <BasicButton>+/-</BasicButton>
-      <BasicButton>%</BasicButton>
+      <BasicButton
+        onClick={() => {
+          updateSelected("");
+          updateRunningTotal("");
+        }}
+      >
+        AC
+      </BasicButton>
+      <BasicButton
+        onClick={() => {
+          const neg = parseFloat(selected ? selected : runningTotal) * -1;
+          if (action !== "") {
+            updateRunningTotal(neg.toString());
+          } else {
+            updateSelected(neg.toString());
+          }
+        }}
+      >
+        +/-
+      </BasicButton>
+      <BasicButton
+        onClick={() => {
+          const dec = parseFloat(selected ? selected : runningTotal) / 100;
+          if (action !== "") {
+            updateRunningTotal(dec.toString());
+          } else {
+            updateSelected(dec.toString());
+          }
+        }}
+      >
+        %
+      </BasicButton>
     </ButtonsContainer>
   );
 }
