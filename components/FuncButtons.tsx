@@ -49,11 +49,13 @@ export function FuncButtons({
         <BasicButton
           type="button"
           onClick={() => {
-            const func = mathFunctions[action];
-            const calc = func({ x: runningTotal, y: selected });
-            updateSelected(calc);
-            updateRunningTotal("");
-            updateAction("");
+            if (action) {
+              const func = mathFunctions[action];
+              const calc = func({ x: runningTotal, y: selected });
+              updateSelected(calc);
+              updateRunningTotal("");
+              updateAction("");
+            }
           }}
         >
           =

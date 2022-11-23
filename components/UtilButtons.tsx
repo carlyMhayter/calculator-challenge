@@ -44,7 +44,7 @@ export function UtilButtons({
       <BasicButton
         onClick={() => {
           const neg = parseFloat(selected ? selected : runningTotal) * -1;
-          if (action !== "") {
+          if (selected === "") {
             updateRunningTotal(neg.toString());
           } else {
             updateSelected(neg.toString());
@@ -57,8 +57,10 @@ export function UtilButtons({
         onClick={() => {
           const dec = parseFloat(selected ? selected : runningTotal) / 100;
           if (action !== "") {
+            //if action is not blank
             updateRunningTotal(dec.toString());
           } else {
+            // if action is supplied
             updateSelected(dec.toString());
           }
         }}

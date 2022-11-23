@@ -39,7 +39,6 @@ export const BasicButton = styled.button`
   border: 1px #edecec solid;
   border-radius: 0.25em;
   transition: 0.25s;
-  min-width: 3em;
   &:hover {
     background-color: #edecec;
   }
@@ -56,7 +55,9 @@ export default function Home() {
   const [action, updateAction] = useState<string>("");
 
   const displayedNum = selected === "" ? runningTotal : selected;
-
+  console.log("selected", selected);
+  console.log("runningTotal", runningTotal);
+  console.log("action", action);
   return (
     <div>
       <Head>
